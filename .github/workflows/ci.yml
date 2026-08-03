@@ -854,7 +854,7 @@ jobs:
           cargo --locked fmt -- --check
 
       - name: Install Tombi
-        uses: tombi-toml/setup-tombi@v1.2.0
+        uses: tombi-toml/setup-tombi@v1.2.6
         with:
           version: "1.1.3"
 
