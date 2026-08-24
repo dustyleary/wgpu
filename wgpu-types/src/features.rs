@@ -89,6 +89,9 @@ mod webgpu_impl {
 
     #[doc(hidden)]
     pub const WEBGPU_FEATURE_PRIMITIVE_INDEX: u64 = 1 << 17;
+
+    #[doc(hidden)]
+    pub const WEBGPU_FEATURE_CHROMIUM_EXPERIMENTAL_MULTI_DRAW_INDIRECT: u64 = 1 << 18;
 }
 
 macro_rules! bitflags_array_impl {
@@ -1639,6 +1642,18 @@ bitflags_array! {
         /// This is a web and native feature.
         #[name("indirect-first-instance")]
         const INDIRECT_FIRST_INSTANCE = WEBGPU_FEATURE_INDIRECT_FIRST_INSTANCE;
+
+        /// Enables Chromium's experimental WebGPU multi-draw indirect
+        /// extension. This exposes `multiDrawIndirect()` and
+        /// `multiDrawIndexedIndirect()` on render pass encoders.
+        ///
+        /// Supported Platforms:
+        /// - WebGPU in Chromium with unsafe WebGPU features enabled
+        ///
+        /// This is a non-standard web-only feature.
+        #[name("chromium-experimental-multi-draw-indirect")]
+        const CHROMIUM_EXPERIMENTAL_MULTI_DRAW_INDIRECT =
+            WEBGPU_FEATURE_CHROMIUM_EXPERIMENTAL_MULTI_DRAW_INDIRECT;
 
         /// Allows shaders to use 16-bit floating point types. You may use them uniform buffers,
         /// storage buffers, and local variables. You may not use them in immediates.
